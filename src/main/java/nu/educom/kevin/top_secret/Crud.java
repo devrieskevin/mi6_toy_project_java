@@ -16,10 +16,12 @@ public class Crud implements ICrud{
 
   private void connect() {
     try {
+      ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+
       // db parameters
-      String url       = "jdbc:mysql://127.0.0.1:3306/mi6";
-      String user      = "mi6_admin";
-      String password  = "wTOcJj1eiCP2xAX2";
+      String url = resourceBundle.getString("datasource.url");
+      String user = resourceBundle.getString("datasource.username");
+      String password = resourceBundle.getString("datasource.password");
 
       // create a connection to the database
       conn = DriverManager.getConnection(url, user, password);
